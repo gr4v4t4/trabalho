@@ -1,0 +1,211 @@
+/* Estilos básicos */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff8e1; /* Cor de fundo */
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #f4a261;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Carrossel */
+.carousel {
+    display: flex;
+    overflow: hidden;
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+.carousel-item {
+    display: none;
+    flex-shrink: 0;
+    width: 100%;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.carousel-item.active {
+    display: block;
+    opacity: 1;
+}
+
+.carousel img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Filtro de Categorias e Busca */
+.categories button {
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: #f4a261;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.categories button:hover {
+    background-color: #e76f51;
+}
+
+input[type="text"] {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Promoções e Destaques */
+.promocoes {
+    background-color: #e76f51;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.promocoes h2 {
+    margin-bottom: 10px;
+}
+
+.promocao-item {
+    background-color: white;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Carrinho e Botões */
+.carrinho {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.carrinho button {
+    background-color: #e76f51;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.carrinho button:hover {
+    background-color: #f4a261;
+}
+
+#carrinho-flutuante {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 300px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Formulário de contato */
+footer form {
+    margin-top: 20px;
+}
+
+footer form input,
+footer form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+footer form button {
+    background-color: white;
+    color: #f4a261;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer form button:hover {
+    background-color: #f4a261;
+    color: white;
+}
+
+.social-media a {
+    margin: 0 10px;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    color: #f4a261;
+}
+
+/* Botões flutuantes */
+#btn-carrinho,
+#btn-finalizar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #e76f51;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
+
+#btn-carrinho {
+    right: 180px;
+}
+
+#btn-finalizar {
+    right: 20px;
+}
+
+/* Estilo das estrelas na avaliação */
+.star {
+    cursor: pointer;
+    color: #ccc;
+    font-size: 18px;
+}
+
+.star.active {
+    color: gold;
+}
+

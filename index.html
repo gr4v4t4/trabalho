@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanchonete Delícia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Ícones Font Awesome -->
+</head>
+<body>
+    <header>
+        <h1>Lanchonete Delícia</h1>
+        <p>Sua melhor opção para lanches rápidos e saborosos!</p>
+        <nav>
+            <a href="#menu">Cardápio</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <main id="menu">
+        <section>
+            <h2>Nosso Cardápio</h2>
+
+            <!-- Campo de busca -->
+            <input type="text" id="searchInput" onkeyup="filtroDeBusca()" placeholder="Buscar por lanches...">
+
+            <!-- Categorias -->
+            <nav class="categories">
+                <button onclick="filtrarCategoria('todos')"><i class="fas fa-bars"></i> Todos</button>
+                <button onclick="filtrarCategoria('hamburgueres')"><i class="fas fa-hamburger"></i> Hamburgueres</button>
+                <button onclick="filtrarCategoria('pizzas')"><i class="fas fa-pizza-slice"></i> Pizzas</button>
+                <button onclick="filtrarCategoria('sobremesas')"><i class="fas fa-ice-cream"></i> Sobremesas</button>
+            </nav>
+
+            <!-- Itens do cardápio -->
+            <div class="menu-items">
+                <article class="lanche hamburgueres" data-id="1">
+                    <img src="hamburguersimples.jpg" alt="Hambúrguer clássico com queijo, alface e tomate">
+                    <h3>Hambúrguer Clássico</h3>
+                    <p>Delicioso hambúrguer com queijo, alface e tomate.</p>
+                    <p><strong>R$ 15,00</strong></p>
+
+                    <div class="avaliacao">
+                        <span class="star" onclick="avaliar(1, this)">&starf;</span>
+                        <span class="star" onclick="avaliar(2, this)">&starf;</span>
+                        <span class="star" onclick="avaliar(3, this)">&starf;</span>
+                        <span class="star" onclick="avaliar(4, this)">&starf;</span>
+                        <span class="star" onclick="avaliar(5, this)">&starf;</span>
+                    </div>
+                    <p id="media-avaliacao-1">Avaliações: 4.5/5</p>
+
+                    <button onclick="fazerPedido('Hambúrguer Clássico', 15)">
+                        <i class="fas fa-cart-plus"></i> Fazer Pedido
+                    </button>
+                </article>
+
+                <!-- Novo item: Hambúrguer Vegano -->
+                <article class="lanche hamburgueres" data-id="2">
+                    <img src="hambuguervegano.jpg" alt="Hambúrguer Vegano com ingredientes saudáveis">
+                    <h3>Hambúrguer Vegano</h3>
+                    <p>Hambúrguer feito com ingredientes 100% veganos, saboroso e saudável.</p>
+                    <p><strong>R$ 18,00</strong></p>
+
+                    <div class="avaliacao">
+                        <span class="star" onclick="avaliar(1, this)">&starf;</span>
+                        <span class="star" onclick="avaliar(2, this)">&starf;</span>
+                        <span class="star" onclick="avaliar(3, this)">&starf;</span>
+                        <span class="star" onclick="avaliar(4, this)">&starf;</span>
+                        <span class="star" onclick="avaliar(5, this)">&starf;</span>
+                    </div>
+                    <p id="media-avaliacao-2">Avaliações: 4.7/5</p>
+
+                    <button onclick="fazerPedido('Hambúrguer Vegano', 18)">
+                        <i class="fas fa-cart-plus"></i> Fazer Pedido
+                    </button>
+                </article>
+
+                <article class="lanche pizzas" data-id="3">
+                    <img src="minipizza.jpg" alt="Mini pizza com calabresa e queijo">
+                    <h3>Mini Pizza</h3>
+                    <p>Massa crocante com recheio de queijo e calabresa.</p>
+                    <p><strong>R$ 12,00</strong></p>
+
+                    <div class="avaliacao">
+                        <span class="star" onclick="avaliar(1, this)">&starf;</span>
+                        <span class="star" onclick="avaliar(2, this)">&starf;</span>
+                        <span class="star" onclick="avaliar(3, this)">&starf;</span>
+                        <span class="star" onclick="avaliar(4, this)">&starf;</span>
+                        <span class="star" onclick="avaliar(5, this)">&starf;</span>
+                    </div>
+                    <p id="media-avaliacao-3">Avaliações: 4.0/5</p>
+
+                    <button onclick="fazerPedido('Mini Pizza', 12)">
+                        <i class="fas fa-cart-plus"></i> Fazer Pedido
+                    </button>
+                </article>
+
+                <article class="lanche sobremesas" data-id="4">
+                    <img src="sorvete.jpg" alt="Sorvete de chocolate com calda">
+                    <h3>Sorvete de Chocolate</h3>
+                    <p>Creme gelado com calda de chocolate.</p>
+                    <p><strong>R$ 8,00</strong></p>
+
+                    <div class="avaliacao">
+                        <span class="star" onclick="avaliar(1, this)">&starf;</span>
+                        <span class="star" onclick="avaliar(2, this)">&starf;</span>
+                        <span class="star" onclick="avaliar(3, this)">&starf;</span>
+                        <span class="star" onclick="avaliar(4, this)">&starf;</span>
+                        <span class="star" onclick="avaliar(5, this)">&starf;</span>
+                    </div>
+                    <p id="media-avaliacao-4">Avaliações: 4.8/5</p>
+
+                    <button onclick="fazerPedido('Sorvete de Chocolate', 8)">
+                        <i class="fas fa-cart-plus"></i> Fazer Pedido
+                    </button>
+                </article>
+            </div>
+
+            <!-- Carrinho Flutuante -->
+            <div id="carrinho-flutuante">
+                <h3>Seu Carrinho</h3>
+                <ul id="lista-carrinho"></ul>
+                <p id="total-carrinho">Total: R$ 0,00</p>
+                <button onclick="fecharCarrinho()">Fechar</button>
+            </div>
+
+            <!-- Botões Flutuantes -->
+            <button id="btn-carrinho" onclick="mostrarCarrinho()">
+                <i class="fas fa-shopping-cart"></i> Ver Carrinho
+            </button>
+            <button id="btn-finalizar" onclick="finalizarPedido()">
+                <i class="fas fa-check-circle"></i> Finalizar Pedido
+
+            </button>
+        </section>
+
+
+        <!-- Seção de promoções -->
+        <section class="promocoes">
+            <h2>Promoções do Dia</h2>
+            <div class="promocao-item">
+                <h3>Oferta Especial</h3>
+                <p>Hambúrguer duplo + batata frita - De <strong>R$ 25,00</strong> por <strong>R$ 20,00</strong></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Formulário de contato -->
+    <footer id="contato">
+        <p>&copy; 2024 Lanchonete Delícia - Todos os direitos reservados.</p>
+        <p>Contato: <a href="mailto:contato@lanchonetedelicia.com">contato@lanchonetedelicia.com</a> | Telefone: <a href="tel:+5511999999999">(11) 9999-9999</a></p>
+        <form onsubmit="return validarFormulario()">
+            <h3>Fale Conosco</h3>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
